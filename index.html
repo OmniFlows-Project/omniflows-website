@@ -1,297 +1,479 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniFlows - 你的私有知识网关</title>
-    <meta name="description" content="OmniFlows turns fragmented AI conversations into your private knowledge tree.">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --card: #f9fafb;
-            --text: #2d3436;
-            --muted: #636e72;
-            --accent: #0984e3;
-            --border: #dfe6e9;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        .page {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 32px 20px 48px;
-        }
-
-        .topbar {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 8px;
-        }
-
-        .language-select {
-            min-width: 148px;
-            border: 1px solid var(--border);
-            background: #ffffff;
-            color: var(--muted);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font: inherit;
-            font-size: 0.9rem;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .language-select:focus {
-            border-color: var(--accent);
-        }
-
-        header {
-            padding: 0;
-        }
-
-        h1 {
-            margin: 0 0 18px;
-            color: var(--text);
-            font-size: clamp(2.4rem, 6vw, 3.2rem);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
-        }
-
-        .headline {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-
-        main {
-            margin-top: 28px;
-        }
-
-        .vision-card {
-            background: var(--card);
-            border-left: 5px solid var(--accent);
-            padding: 20px;
-            margin: 18px 0;
-            border-radius: 4px;
-        }
-
-        .vision-card h3 {
-            margin: 0 0 10px;
-            font-size: 1.15rem;
-        }
-
-        .vision-card p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: var(--muted);
-            text-align: center;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #dfe6e9;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-right: 5px;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        @media (max-width: 640px) {
-            .topbar {
-                justify-content: flex-start;
-            }
-
-            .language-select {
-                width: 100%;
-                max-width: 180px;
-            }
-
-            .vision-card {
-                padding: 18px;
-            }
-        }
-    </style>
+    <title>OmniFlows - Cultivate Your Digital Mind</title>
+    <meta name="description"
+        content="Turn fragmented reading behavior into structured knowledge with OmniFlows. Semantic capture, reading depth analysis, and seamless integration.">
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <div class="page">
-        <div class="topbar">
-            <label for="language-select">
-                <span class="sr-only" data-i18n="languageLabel">语言</span>
-                <select class="language-select" id="language-select" aria-label="Language">
-                    <option value="zh-CN">中文</option>
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="ja">日本語</option>
-                </select>
-            </label>
+    <nav class="glass sticky-nav">
+        <div class="container nav-content">
+            <div class="logo">
+                <img src="../omniflows-extension/omniflows-icon-128.png" alt="OmniFlows Logo" class="logo-img">
+                <span class="heading-serif">OmniFlows</span>
+            </div>
+            <div class="nav-links">
+                <div class="lang-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lang-icon">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    <select class="language-select" id="language-select" aria-label="Language">
+                        <option value="en">English</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                        <option value="zh-CN">简体中文</option>
+                        <option value="zh-TW">繁體中文</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </div>
+            </div>
         </div>
+    </nav>
 
-        <header>
-            <h1 data-i18n="productName">OmniFlows</h1>
-            <p class="headline"><strong data-i18n="headline">让碎片化的 AI 对话，长成你的私有知识树。</strong></p>
-        </header>
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text animate-fade-in">
+                <h1 data-i18n="heroTitle">Cultivate Your Digital Mind</h1>
+                <p class="subtitle" data-i18n="heroSub">OmniFlows captures the flow of your reading behavior,
+                    transforming fragmented sessions into a private knowledge tree.</p>
+                <div class="hero-btns">
+                    <a href="https://chromewebstore.google.com/detail/omniflows/" class="btn btn-primary"
+                        data-i18n="ctaLearnMore">Try Now</a>
+                </div>
+            </div>
+            <div id="demo" class="hero-demo animate-fade-in delay-1">
+                <div class="demo-display">
+                    <div class="demo-window glass">
+                        <div class="demo-header">
+                            <div class="dots"><span></span><span></span><span></span></div>
+                            <div class="url-bar">omniflows.net/demo</div>
+                        </div>
+                        <div class="demo-content">
+                            <div class="demo-slide-container" id="demo-slides">
+                                <div class="demo-slide active" id="slide-1">
+                                    <img src="omniflwos_screenshot/capture-0.jpg" alt="Select to capture">
+                                </div>
+                                <!-- Slide 2: Insight -->
+                                <div class="demo-slide" id="slide-2">
+                                    <img src="omniflwos_screenshot/option-1.jpg" alt="Knowledge Review">
+                                </div>
+                                <!-- Slide 3: Insight -->
+                                <div class="demo-slide" id="slide-3">
+                                    <img src="omniflwos_screenshot/popup-view.jpg" alt="AI Insights">
+                                </div>
+                                <!-- Slide 4: Integration -->
+                                <div class="demo-slide" id="slide-4">
+                                    <img src="omniflwos_screenshot/timeline.jpg" alt="Integrations">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="demo-controls">
+                            <button id="prev-slide">←</button>
+                            <div class="controls-center">
+                                <div class="demo-captions" id="demo-captions">
+                                    <div class="control-caption active" data-i18n="demoCapture">One-click Capture:
+                                        Semantic context preserved.</div>
+                                    <div class="control-caption" data-i18n="demoReview">Knowledge Review: Daily insights
+                                        generated by AI.</div>
+                                    <div class="control-caption" data-i18n="demoInsight">Daily Digest: AI-driven themes
+                                        and takeaways.</div>
+                                    <div class="control-caption" data-i18n="demoSync">Seamless Sync: Obsidian & Google
+                                        Drive integration.</div>
+                                </div>
+                                <div class="slide-dots" id="slide-pips"></div>
+                            </div>
+                            <button id="next-slide">→</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        <main>
-            <section class="vision-card">
-                <h3 data-i18n="card1Title">🌐 跨平台知识网关</h3>
-                <p data-i18n="card1Body">打破 ChatGPT、Gemini、Grok 的藩篱，实现多端数据无感采集。你的数据，不应被锁在任何一个大模型的对话框里。</p>
-            </section>
+    <section class="cases" id="cases">
+        <div class="container">
+            <h2 class="section-title animate-fade-in" data-i18n="whyOmniFlows">Why OmniFlows?</h2>
+            <div class="case-grid">
+                <div class="case-card animate-fade-in delay-1">
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-microscope">
+                            <path d="M6 18h8" />
+                            <path d="M3 22h18" />
+                            <path d="M14 22a7 7 0 1 0 0-14h-1" />
+                            <path d="M9 14h2" />
+                            <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
+                            <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="case1Title">Reading Depth Model</h3>
+                    <p data-i18n="case1Text">We don't just track time. We measure dwell time and scroll depth to
+                        distinguish curiosity from deep study.</p>
+                </div>
+                <div class="case-card animate-fade-in delay-2">
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-focus">
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="case2Title">Semantic Block Capture</h3>
+                    <p data-i18n="case2Text">Capture complete logical units, not just sentences. Every highlight retains
+                        its original context automatically.</p>
+                </div>
+                <div class="case-card animate-fade-in delay-3">
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-refresh-cw">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                            <path d="M21 3v5h-5" />
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                            <path d="M3 21v-5h5" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="case3Title">Cross-Platform Sync</h3>
+                    <p data-i18n="case3Text">Your knowledge assets exported directly to Obsidian, Notion, or your
+                        private cloud.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section class="vision-card">
-                <h3 data-i18n="card2Title">🌳 树状思维重构</h3>
-                <p data-i18n="card2Body">告别线性流。OmniFlows 自动识别对话间的血缘关系，将零散的问答转化为可视化的思维导图，还原你的探索路径。</p>
-            </section>
+    <section class="integrations" id="integrations">
+        <div class="container text-center">
+            <h2 class="section-title" data-i18n="integHeader">Knowledge Export. Seamless Persistence.</h2>
+            <p class="section-subtext mx-auto" data-i18n="integSub">OmniFlows ensures your data never becomes an island.
+                Build your lifelong knowledge base through deep cross-platform integration.</p>
 
-            <section class="vision-card">
-                <h3 data-i18n="card3Title">🛡️ 独立、开放与私有</h3>
-                <p data-i18n="card3Body">我们坚持开源核心协议。你可以将数据同步至 OpenClaw 或任何私有后台，真正拥有你的数字资产主权。</p>
-            </section>
-        </main>
+            <div class="integ-row">
+                <div class="integ-item card animate-fade-in delay-1">
+                    <div class="integ-icon-small obsidian-color">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-heart">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </div>
+                    <div class="integ-info text-left">
+                        <h3 data-i18n="integ1Title">Obsidian Sync</h3>
+                        <p data-i18n="integ1Text">Real-time synchronization of browsing trajectories and knowledge items
+                            to your Obsidian vault.</p>
+                    </div>
+                </div>
+                <div class="integ-item card animate-fade-in delay-2">
+                    <div class="integ-icon-small drive-color">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-cloud">
+                            <path
+                                d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.32-1.73-4.22-4-4.47a7 7 0 1 0-13.48 3.47c-1.39.2-2.52 1.34-2.52 2.75C2 17.78 3.22 19 4.72 19Z" />
+                        </svg>
+                    </div>
+                    <div class="integ-info text-left">
+                        <h3 data-i18n="integ2Title">Google Drive Backup</h3>
+                        <p data-i18n="integ2Text">Securely back up all captured data and configuration to your personal
+                            cloud.</p>
+                    </div>
+                </div>
+                <div class="integ-item card animate-fade-in delay-3">
+                    <div class="integ-icon-small ai-color">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-brain">
+                            <path
+                                d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .52 8.21 3 3 0 1 0 5.996-.124A3 3 0 1 0 16 22a3 3 0 1 0 5.996-.124 4 4 0 0 0 .52-8.21 4 4 0 0 0-2.526-5.77A3 3 0 1 0 12 5Z" />
+                            <path d="M9 13a4.5 4.5 0 0 0 3-4" />
+                            <path d="M15 13a4.5 4.5 0 0 1-3-4" />
+                            <path d="M12 13V8" />
+                        </svg>
+                    </div>
+                    <div class="integ-info text-left">
+                        <h3 data-i18n="integ3Title">Local LLM Support</h3>
+                        <p data-i18n="integ3Text">Run categorization and summarization locally for maximum privacy and
+                            performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <footer class="footer">
-            <p><span class="badge">v0.1 Alpha</span><span data-i18n="footerLine1">Built for lifelong learners</span></p>
-            <p data-i18n="footerLine2">© 2026 OmniFlows.net - Building in Public</p>
-        </footer>
-    </div>
 
+    <footer>
+        <div class="container footer-simple">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="../omniflows-extension/omniflows-icon-128.png" alt="OmniFlows Logo" class="logo-img">
+                    <span class="heading-serif">OmniFlows</span>
+                </div>
+                <p class="footer-tagline" data-i18n="footerTagline">Building the future of digital memory.</p>
+            </div>
+
+            <div class="footer-info">
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-twitter">
+                        <path
+                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                    </svg>
+                    <a href="https://x.com/omniflows_net" target="_blank">@omniflows_net</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-mail">
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    <a href="mailto:support@omniflows.net">support@omniflows.net</a>
+                </div>
+            </div>
+
+            <p class="copyright">&copy; 2026 OmniFlows.net</p>
+        </div>
+    </footer>
+
+    <script src="demo.js"></script>
     <script>
         const translations = {
-            "zh-CN": {
-                pageTitle: "OmniFlows - 你的私有知识网关",
-                pageDescription: "OmniFlows 将碎片化的 AI 对话组织成你的私有知识树。",
-                languageLabel: "语言",
-                productName: "OmniFlows",
-                headline: "让碎片化的 AI 对话，长成你的私有知识树。",
-                card1Title: "🌐 跨平台知识网关",
-                card1Body: "打破 ChatGPT、Gemini、Grok 的藩篱，实现多端数据无感采集。你的数据，不应被锁在任何一个大模型的对话框里。",
-                card2Title: "🌳 树状思维重构",
-                card2Body: "告别线性流。OmniFlows 自动识别对话间的血缘关系，将零散的问答转化为可视化的思维导图，还原你的探索路径。",
-                card3Title: "🛡️ 独立、开放与私有",
-                card3Body: "我们坚持开源核心协议。你可以将数据同步至 OpenClaw 或任何私有后台，真正拥有你的数字资产主权。",
-                footerLine1: "Built for lifelong learners",
-                footerLine2: "© 2026 OmniFlows.net - Building in Public"
-            },
             en: {
-                pageTitle: "OmniFlows - Your Private Knowledge Gateway",
-                pageDescription: "OmniFlows turns fragmented AI conversations into your private knowledge tree.",
-                languageLabel: "Language",
-                productName: "OmniFlows",
-                headline: "Turn fragmented AI conversations into your private knowledge tree.",
-                card1Title: "🌐 Cross-platform knowledge gateway",
-                card1Body: "Break data out of ChatGPT, Gemini, Grok, and other silos with seamless collection across platforms. Your knowledge should not live inside a single chat box.",
-                card2Title: "🌳 Tree-structured thinking",
-                card2Body: "Move beyond linear threads. OmniFlows maps relationships across conversations and reshapes scattered answers into a visual mind map of your exploration.",
-                card3Title: "🛡️ Independent, open, and private",
-                card3Body: "We keep the core protocol open. Sync your data to OpenClaw or any private backend and retain real ownership of your digital knowledge assets.",
-                footerLine1: "Built for lifelong learners",
-                footerLine2: "© 2026 OmniFlows.net - Building in Public"
+                heroTitle: "Cultivate Your Digital Mind",
+                heroSub: "OmniFlows captures the flow of your reading behavior, transforming fragmented sessions into a private knowledge tree.",
+                ctaLearnMore: "Try Now",
+                demoCapture: "One-click Capture: Semantic context preserved.",
+                demoReview: "Knowledge Review: Daily insights generated by AI.",
+                demoInsight: "Daily Digest: AI-driven themes and takeaways.",
+                demoSync: "Seamless Sync: Obsidian & Google Drive integration.",
+                whyOmniFlows: "Why OmniFlows?",
+                case1Title: "Reading Depth Model",
+                case1Text: "We don't just track time. We measure dwell time and scroll depth to distinguish curiosity from deep study.",
+                case2Title: "Semantic Block Capture",
+                case2Text: "Capture complete logical units, not just sentences. Every highlight retains its original context automatically.",
+                case3Title: "Cross-Platform Sync",
+                case3Text: "Your knowledge assets exported directly to Obsidian, Notion, or your private cloud.",
+                integHeader: "Knowledge Export. Seamless Persistence.",
+                integSub: "OmniFlows ensures your data never becomes an island. Build your lifelong knowledge base through deep cross-platform integration.",
+                integ1Title: "Obsidian Sync",
+                integ1Text: "Real-time synchronization of browsing trajectories and knowledge items to your Obsidian vault.",
+                integ2Title: "Google Drive Backup",
+                integ2Text: "Securely back up all captured data and configuration to your personal cloud.",
+                integ3Title: "Local LLM Support",
+                integ3Text: "Run categorization and summarization locally for maximum privacy and performance.",
+                ecoTitle: "Connected Ecosystem",
+                ecoText: "Automatic bi-directional links and folder management for your permanent notes.",
+                footerTagline: "Building the future of digital memory.",
+                footerProduct: "Product",
+                footerFeatures: "Features",
+                footerHowItWorks: "Why & How",
+                footerResources: "Resources",
+                footerSupport: "Support",
+                footerPrivacy: "Privacy Policy",
+                footerTerms: "Terms of Service"
             },
-            fr: {
-                pageTitle: "OmniFlows - Votre passerelle de connaissance privee",
-                pageDescription: "OmniFlows transforme des conversations IA fragmentees en votre arbre de connaissances prive.",
-                languageLabel: "Langue",
-                productName: "OmniFlows",
-                headline: "Transformez des conversations IA fragmentees en votre arbre de connaissances prive.",
-                card1Title: "🌐 Passerelle de connaissance multiplateforme",
-                card1Body: "Brisez les silos de ChatGPT, Gemini et Grok grace a une collecte fluide sur plusieurs plateformes. Vos donnees ne devraient pas rester enfermees dans une seule fenetre de dialogue.",
-                card2Title: "🌳 Recomposition de la pensee en arborescence",
-                card2Body: "Sortez du fil lineaire. OmniFlows identifie les liens entre les conversations et transforme des questions-reponses dispersees en carte mentale visuelle de votre parcours.",
-                card3Title: "🛡️ Independant, ouvert et prive",
-                card3Body: "Nous gardons le protocole central ouvert. Synchronisez vos donnees vers OpenClaw ou n'importe quel backend prive pour conserver la pleine maitrise de vos actifs numeriques.",
-                footerLine1: "Built for lifelong learners",
-                footerLine2: "© 2026 OmniFlows.net - Building in Public"
+            "zh-CN": {
+                heroTitle: "培育你的数字思维",
+                heroSub: "OmniFlows 捕捉你的阅读轨迹，将碎片化的浏览转化为结构化的私域知识树。",
+                ctaLearnMore: "立即体验",
+                demoCapture: "一键捕捉：自动保留语义块完整上下文。",
+                demoReview: "知识回顾：AI 生成的每日洞察与总结。",
+                demoInsight: "每日摘要：AI 驱动的主题与要点抽取。",
+                demoSync: "无缝同步：Obsidian 与 Google Drive 深度集成。",
+                whyOmniFlows: "为何选择 OmniFlows?",
+                case1Title: "阅读深度模型",
+                case1Text: "不只是计时。我们通过停顿和滚动深度识别真正的深读行为。",
+                case2Title: "语义块捕捉",
+                case2Text: "捕捉完整的逻辑单元。每一个高亮都自动保留其原始语义背景。",
+                case3Title: "跨平台同步",
+                case3Text: "将你的知识资产直接导出到 Obsidian、Notion 或私有云。 ",
+                integHeader: "知识导出，无缝持久",
+                integSub: "OmniFlows 确保你的数据不再是孤岛。通过深度的跨平台集成，构建你的终身知识库。",
+                integ1Title: "Obsidian 同步",
+                integ1Text: "实时将浏览轨迹和知识项同步到你的 Obsidian 库。",
+                integ2Title: "Google Drive 备份",
+                integ2Text: "安全地将所有捕获的数据和配置备份到你的个人云端。",
+                integ3Title: "本地大模型支持",
+                integ3Text: "在本地运行分类和摘要，实现最高的隐私和性能。",
+                ecoTitle: "互联生态系统",
+                ecoText: "为你的永久笔记提供自动的双向链接和文件夹管理。",
+                footerTagline: "构建数字记忆的未来。",
+                footerProduct: "产品",
+                footerFeatures: "功能特色",
+                footerHowItWorks: "深度解析",
+                footerResources: "相关资源",
+                footerSupport: "技术支持",
+                footerPrivacy: "隐私政策",
+                footerTerms: "服务条款"
             },
             de: {
-                pageTitle: "OmniFlows - Ihr privates Wissensportal",
-                pageDescription: "OmniFlows verwandelt fragmentierte KI-Gespraeche in Ihren privaten Wissensbaum.",
-                languageLabel: "Sprache",
-                productName: "OmniFlows",
-                headline: "Lassen Sie fragmentierte KI-Gespraeche zu Ihrem privaten Wissensbaum werden.",
-                card1Title: "🌐 Plattformuebergreifendes Wissensportal",
-                card1Body: "Befreien Sie Daten aus den Silos von ChatGPT, Gemini und Grok mit nahtloser Erfassung ueber mehrere Plattformen hinweg. Ihr Wissen sollte nicht in einem einzelnen Chatfenster eingeschlossen sein.",
-                card2Title: "🌳 Baumartige Denkstruktur",
-                card2Body: "Weg von linearen Verlaeufen. OmniFlows erkennt Beziehungen zwischen Gespraechen und formt verstreute Fragen und Antworten zu einer visuellen Wissenskarte Ihres Denkwegs.",
-                card3Title: "🛡️ Unabhaengig, offen und privat",
-                card3Body: "Wir halten das Kernprotokoll offen. Synchronisieren Sie Ihre Daten mit OpenClaw oder einem privaten Backend und behalten Sie die volle Hoheit ueber Ihre digitalen Wissenswerte.",
-                footerLine1: "Built for lifelong learners",
-                footerLine2: "© 2026 OmniFlows.net - Building in Public"
+                heroTitle: "Kultivieren Sie Ihren digitalen Geist",
+                heroSub: "OmniFlows erfasst den Fluss Ihres Leseverhaltens und verwandelt fragmentierte Sitzungen in einen privaten Wissensbaum.",
+                ctaLearnMore: "Jetzt ausprobieren",
+                demoCapture: "Ein-Klick-Erfassung: Semantischer Kontext bleibt erhalten.",
+                demoReview: "Wissensrueckblick: Taegliche KI-Einblicke.",
+                demoInsight: "Daily Digest: KI-gesteuerte Themen.",
+                demoSync: "Nahtlose Synchronisation: Obsidian & Google Drive Integration.",
+                whyOmniFlows: "Warum OmniFlows?",
+                case1Title: "Lesetiefen-Modell",
+                case1Text: "Wir messen nicht nur die Zeit. Wir analysieren die Verweildauer und Scrolltiefe.",
+                case2Title: "Semantische Block-Erfassung",
+                case2Text: "Erfassen Sie logische Einheiten, nicht nur Saetze.",
+                case3Title: "Plattformuebergreifender Sync",
+                case3Text: "Exportieren Sie direkt in Obsidian, Notion oder Ihre private Cloud.",
+                integHeader: "Wissensexport. Nahtlose Beständigkeit.",
+                integSub: "OmniFlows stellt sicher, dass Ihre Daten nie zu einer Insel werden. Bauen Sie Ihre lebenslange Wissensdatenbank durch tiefgreifende plattformübergreifende Integration auf.",
+                integ1Title: "Obsidian Sync",
+                integ1Text: "Echtzeit-Synchronisation von Browsing-Trajektorien und Wissenselementen in Ihren Obsidian-Tresor.",
+                integ2Title: "Google Drive Backup",
+                integ2Text: "Sichern Sie alle erfassten Daten und Konfigurationen sicher in Ihrer persönlichen Cloud.",
+                integ3Title: "Lokale LLM-Unterstützung",
+                integ3Text: "Führen Sie Kategorisierung und Zusammenfassung lokal aus, um maximale Privatsphäre und Leistung zu gewährleisten.",
+                ecoTitle: "Vernetztes Ökosystem",
+                ecoText: "Automatische bidirektionale Verknüpfungen und Ordnerverwaltung für Ihre permanenten Notizen.",
+                footerTagline: "Die Zukunft des digitalen Gedaechtnisses bauen.",
+                footerProduct: "Produkt",
+                footerFeatures: "Funktionen",
+                footerHowItWorks: "Warum & Wie",
+                footerResources: "Ressourcen",
+                footerSupport: "Support",
+                footerPrivacy: "Datenschutz",
+                footerTerms: "AGB"
+            },
+            fr: {
+                heroTitle: "Cultivez votre esprit numerique",
+                heroSub: "OmniFlows capture le flux de votre lecture, transformant les sessions fragmentees en un arbre de connaissances prive.",
+                ctaLearnMore: "Essayer maintenant",
+                demoCapture: "Capture en un clic : le contexte semantique est preserve.",
+                demoReview: "Revue de connaissances : apercus quotidiens par l'IA.",
+                demoInsight: "Digest quotidien : themes et points cles par l'IA.",
+                demoSync: "Synchro transparente : integration Obsidian et Google Drive.",
+                whyOmniFlows: "Pourquoi OmniFlows ?",
+                case1Title: "Modele de profondeur de lecture",
+                case1Text: "Nous mesurons le temps de lecture et la profondeur de defilement.",
+                case2Title: "Capture de blocs semantiques",
+                case2Text: "Capturez des unites logiques completes.",
+                case3Title: "Synchro multiplateforme",
+                case3Text: "Exportez directement vers Obsidian, Notion ou votre cloud prive.",
+                integHeader: "Export de connaissances. Persistance sans faille.",
+                integSub: "OmniFlows garantit que vos données ne deviennent jamais une île. Construisez votre base de connaissances à vie grâce à une intégration multiplateforme profonde.",
+                integ1Title: "Obsidian Sync",
+                integ1Text: "Synchronisation en temps réel des trajectoires de navigation et des éléments de connaissance vers votre coffre Obsidian.",
+                integ2Title: "Sauvegarde Google Drive",
+                integ2Text: "Sauvegardez en toute sécurité toutes les données capturées et la configuration sur votre cloud personnel.",
+                integ3Title: "Support LLM Local",
+                integ3Text: "Exécutez la catégorisation et le résumé localement pour une confidentialité et des performances maximales.",
+                ecoTitle: "Écosystème Connecté",
+                ecoText: "Liens bidirectionnels automatiques et gestion des dossiers pour vos notes permanentes.",
+                footerTagline: "Construire l'avenir de la memoire numerique.",
+                footerProduct: "Produit",
+                footerFeatures: "Fonctionnalités",
+                footerHowItWorks: "Pourquoi & Comment",
+                footerResources: "Ressources",
+                footerSupport: "Assistance",
+                footerPrivacy: "Confidentialité",
+                footerTerms: "Conditions"
             },
             ja: {
-                pageTitle: "OmniFlows - あなたのプライベート知識ゲートウェイ",
-                pageDescription: "OmniFlows は断片化した AI 対話を、あなた自身の知識ツリーへ整理します。",
-                languageLabel: "言語",
-                productName: "OmniFlows",
-                headline: "断片化した AI 対話を、あなたのプライベート知識ツリーへ。",
-                card1Title: "🌐 クロスプラットフォーム知識ゲートウェイ",
-                card1Body: "ChatGPT、Gemini、Grok などの分断を越え、複数のプラットフォームから自然にデータを収集します。あなたの知識は一つのチャット欄に閉じ込められるべきではありません。",
-                card2Title: "🌳 ツリー構造の思考再構築",
-                card2Body: "直線的なスレッドから離れましょう。OmniFlows は対話同士の関係を見つけ出し、散らばった Q&A を探索の道筋が見えるビジュアルなマインドマップへ変換します。",
-                card3Title: "🛡️ 独立性、オープン性、プライバシー",
-                card3Body: "中核プロトコルはオープンに保ちます。データを OpenClaw や任意のプライベートバックエンドへ同期し、デジタル知識資産の主導権を自分の手に残せます。",
-                footerLine1: "Built for lifelong learners",
-                footerLine2: "© 2026 OmniFlows.net - Building in Public"
+                heroTitle: "デジタルな思考を育む",
+                heroSub: "OmniFlows はあなたの読解フローを捉え、断片的なセッションをプライベートな知識の樹へと変換します。",
+                ctaLearnMore: "今すぐ体験",
+                demoCapture: "ワンクリック・キャプチャ：セマンティック・コンテキストを自動保存。",
+                demoReview: "ナレッジ・レビュー：AI が生成する日々の洞察。",
+                demoInsight: "デイリー・ダイジェスト：AIによるテーマ抽出。",
+                demoSync: "シームレスな同期：Obsidian と Google Drive との統合。",
+                whyOmniFlows: "なぜ OmniFlows なのか？",
+                case1Title: "読解深度モデル",
+                case1Text: "単なる時間追跡ではありません。滞留時間とスクロール深度で真の学習を測定します。",
+                case2Title: "セマンティック・ブロック・キャプチャ",
+                case2Text: "文だけでなく、論理的な単位全体をキャプチャします。",
+                case3Title: "クロスプラットフォーム同期",
+                case3Text: "Obsidian や Notion、あるいはプライベートクラウドへ直接エクスポート。",
+                integHeader: "知識のエクスポート。シームレスな永続性。",
+                integSub: "OmniFlowsはあなたのデータが孤島にならないようにします。深いクロスプラットフォーム統合を通じて、生涯にわたる知識ベースを構築しましょう。",
+                integ1Title: "Obsidian同期",
+                integ1Text: "閲覧軌跡や知識項目をリアルタイムでObsidianヴォルトに同期します。",
+                integ2Title: "Googleドライブバックアップ",
+                integ2Text: "キャプチャされたすべてのデータと設定を個人のクラウドに安全にバックアップします。",
+                integ3Title: "ローカルLLMサポート",
+                integ3Text: "プライバシーとパフォーマンスを最大化するために、分類と要約をローカルで実行します。",
+                ecoTitle: "接続されたエコシステム",
+                ecoText: "パーマネントノートのための自動双方向リンクとフォルダ管理。",
+                footerTagline: "デジタル記憶の未来を築く。",
+                footerProduct: "製品",
+                footerFeatures: "特徴",
+                footerHowItWorks: "背景と仕組み",
+                footerResources: "リソース",
+                footerSupport: "サポート",
+                footerPrivacy: "プライバシーポリシー",
+                footerTerms: "利用規約"
+            },
+            "zh-TW": {
+                heroTitle: "培育你的數位思維",
+                heroSub: "OmniFlows 捕捉你的閱讀軌跡，將碎片化的瀏覽轉化為結構化的私域知識樹。",
+                ctaLearnMore: "立即體驗",
+                demoCapture: "一鍵捕捉：自動保留語義塊完整上下文。",
+                demoReview: "知識回顧：AI 生成的每日洞察與總結。",
+                demoInsight: "每日摘要：AI 驅動的主題與要點抽取。",
+                demoSync: "無縫同步：Obsidian 與 Google Drive 深度集成。",
+                whyOmniFlows: "為何選擇 OmniFlows?",
+                case1Title: "閱讀深度模型",
+                case1Text: "不只是計時。我們通過停頓和滾動深度識別真正的深讀行為。",
+                case2Title: "語義塊捕捉",
+                case2Text: "捕捉完整的邏輯單元。每一個高亮都自動保留其原始語義背景。",
+                case3Title: "跨平台同步",
+                case3Text: "將你的知識資產直接導出到 Obsidian、Notion 或私有雲。",
+                integHeader: "知識匯出，無縫持久",
+                integSub: "OmniFlows 確保你的數據不再是孤島。通過深度的跨平台集成，構建你的終身知識庫。",
+                integ1Title: "Obsidian 同步",
+                integ1Text: "實時將瀏覽軌跡和知識項同步到你的 Obsidian 庫。",
+                integ2Title: "Google Drive 備份",
+                integ2Text: "安全地將所有捕獲的數據和配置備份到你的個人雲端。",
+                integ3Title: "本地大模型支持",
+                integ3Text: "在本地運行分類和摘要，實現最高的隱私和性能。",
+                footerTagline: "構建數位記憶的未來。",
+                footerProduct: "產品",
+                footerFeatures: "功能特色",
+                footerHowItWorks: "深度解析",
+                footerResources: "相關資源",
+                footerSupport: "技術支持",
+                footerPrivacy: "隱私政策",
+                footerTerms: "服務條款"
             }
         };
 
-        const titleElement = document.querySelector("title");
-        const descriptionElement = document.querySelector('meta[name="description"]');
-        const translatableElements = document.querySelectorAll("[data-i18n]");
-        const languageSelect = document.querySelector("#language-select");
-
-        function setLanguage(language) {
-            const content = translations[language] || translations["zh-CN"];
-
-            document.documentElement.lang = language;
-            titleElement.textContent = content.pageTitle;
-            descriptionElement.setAttribute("content", content.pageDescription);
-
-            translatableElements.forEach((element) => {
-                const key = element.dataset.i18n;
-                if (content[key]) {
-                    element.textContent = content[key];
-                }
+        const languageSelect = document.getElementById('language-select');
+        function setLanguage(lang) {
+            const t = translations[lang] || translations.en;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.textContent = t[key];
             });
-
-            languageSelect.value = language;
-            languageSelect.setAttribute("aria-label", content.languageLabel);
-            localStorage.setItem("omniflows-language", language);
+            document.documentElement.lang = lang;
+            localStorage.setItem('omni-lang', lang);
         }
 
-        languageSelect.addEventListener("change", (event) => {
-            setLanguage(event.target.value);
-        });
-
-        const savedLanguage = localStorage.getItem("omniflows-language");
-        const browserLanguage = navigator.language && translations[navigator.language] ? navigator.language : "en";
-        setLanguage(savedLanguage || browserLanguage || "zh-CN");
+        languageSelect.addEventListener('change', e => setLanguage(e.target.value));
+        const savedLang = localStorage.getItem('omni-lang') || (navigator.language.startsWith('zh') ? 'zh-CN' : 'en');
+        languageSelect.value = savedLang;
+        setLanguage(savedLang);
     </script>
 </body>
+
 </html>
