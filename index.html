@@ -7,6 +7,10 @@
     <title>OmniFlows - Capture the Flow of Reading</title>
     <meta name='description'
         content='Turn fragmented reading behavior into structured knowledge with OmniFlows. Semantic capture, reading depth analysis, and seamless integration.'>
+    <link rel="icon" type="image/png" sizes="180x180" href="img/omniflows-v4-180.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="img/omniflows-v4-128.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/omniflows-v4-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/omniflows-v4-16.png">
     <link rel='stylesheet' href='index.css'>
 </head>
 
@@ -14,7 +18,7 @@
     <nav class='glass sticky-nav'>
         <div class='container nav-content'>
             <div class='logo'>
-                <img src='./omniflows-icon-128.png' alt='OmniFlows Logo' class='logo-img'>
+                <img src='./img/omniflows-v4-128.png' alt='OmniFlows Logo' class='logo-img'>
                 <span class='heading-serif'>OmniFlows</span>
             </div>
             <div class='nav-links'>
@@ -504,8 +508,8 @@
             let savedLang = "en";
             try {
                 savedLang = localStorage.getItem("omni-lang");
-            } catch (e) {}
-            
+            } catch (e) { }
+
             if (!savedLang) {
                 const navLang = navigator.language.toLowerCase();
                 if (navLang.startsWith("zh")) {
@@ -525,4 +529,5 @@
         }
     </script>
 </body>
+
 </html>
