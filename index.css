@@ -167,8 +167,8 @@ h1, h2, h3, .heading-serif {
 }
 
 .hero-text h1 {
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 1.1;
+    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+    line-height: 1.2;
     margin-bottom: 24px;
     color: var(--primary-sage);
 }
