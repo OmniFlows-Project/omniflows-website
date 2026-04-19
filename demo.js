@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prev-slide');
     let currentSlide = 0;
     let autoPlayInterval;
+    let isTheaterMode = false;
+
+    const heroDemo = document.getElementById('demo');
+    const demoWindow = document.getElementById('demo-window');
+    const theaterClose = document.getElementById('theater-close');
 
     // Create dots (pips)
     slides.forEach((_, i) => {
@@ -43,6 +48,33 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(autoPlayInterval);
         autoPlayInterval = setInterval(nextSlide, 6000); // 6 seconds per slide
     }
+
+    function toggleTheaterMode(active) {
+        isTheaterMode = active;
+        if (active) {
+            heroDemo.classList.add('theater-mode');
+            document.body.style.overflow = 'hidden';
+        } else {
+            heroDemo.classList.remove('theater-mode');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Toggle theater mode on demo window click
+    demoWindow.addEventListener('click', (e) => {
+        // Don't toggle if clicking controls or close button
+        if (e.target.closest('.demo-controls') || e.target.closest('.theater-close')) return;
+        if (!isTheaterMode) toggleTheaterMode(true);
+    });
+
+    theaterClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleTheaterMode(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isTheaterMode) toggleTheaterMode(false);
+    });
 
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
