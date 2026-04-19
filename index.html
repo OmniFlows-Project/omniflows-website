@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>OmniFlows - Capture the Flow of Reading</title>
-    <meta name='description' content='Turn fragmented reading behavior into structured knowledge with OmniFlows. Semantic capture, reading depth analysis, and seamless integration.'>
+    <meta name='description'
+        content='Turn fragmented reading behavior into structured knowledge with OmniFlows. Semantic capture, reading depth analysis, and seamless integration.'>
     <link rel='stylesheet' href='index.css'>
 </head>
+
 <body>
     <nav class='glass sticky-nav'>
         <div class='container nav-content'>
             <div class='logo'>
-                <img src='../omniflows-extension/omniflows-icon-128.png' alt='OmniFlows Logo' class='logo-img'>
+                <img src='./omniflows-icon-128.png' alt='OmniFlows Logo' class='logo-img'>
                 <span class='heading-serif'>OmniFlows</span>
             </div>
             <div class='nav-links'>
                 <div class='lang-wrapper'>
-                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lang-icon'><circle cx='12' cy='12' r='10' /><line x1='2' y1='12' x2='22' y2='12' /><path d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z' /></svg>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'
+                        stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'
+                        class='lang-icon'>
+                        <circle cx='12' cy='12' r='10' />
+                        <line x1='2' y1='12' x2='22' y2='12' />
+                        <path
+                            d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z' />
+                    </svg>
                     <select class='language-select' id='language-select' aria-label='Language'>
                         <option value='en'>English</option>
                         <option value='de'>Deutsch</option>
@@ -33,30 +43,43 @@
         <div class='container hero-grid'>
             <div class='hero-text animate-fade-in'>
                 <h1 data-i18n='heroTitle'>Capture the Flow of Reading</h1>
-                <p class='subtitle' data-i18n='heroSub'>Build your private knowledge system. OmniFlows transforms fragmented reading sessions into structured assets.</p>
-                <div class='hero-btns'><a href='https://chromewebstore.google.com/detail/omniflows/' class='btn btn-primary' data-i18n='ctaLearnMore'>Try Now</a></div>
+                <p class='subtitle' data-i18n='heroSub'>Build your private knowledge system. OmniFlows transforms
+                    fragmented reading sessions into structured assets.</p>
+                <div class='hero-btns'><a href='https://chromewebstore.google.com/detail/omniflows/'
+                        class='btn btn-primary' data-i18n='ctaLearnMore'>Try Now</a></div>
             </div>
             <div id='demo' class='hero-demo animate-fade-in delay-1'>
                 <div class='demo-display'>
                     <div class='demo-window glass' id='demo-window'>
                         <button class='theater-close' id='theater-close' aria-label='Exit Fullscreen'>&times;</button>
-                        <div class='demo-header'><div class='dots'><span></span><span></span><span></span></div><div class='url-bar'>omniflows.net/demo</div></div>
+                        <div class='demo-header'>
+                            <div class='dots'><span></span><span></span><span></span></div>
+                            <div class='url-bar'>omniflows.net/demo</div>
+                        </div>
                         <div class='demo-content'>
                             <div class='demo-slide-container' id='demo-slides'>
-                                <div class='demo-slide active' id='slide-1'><img src='omniflwos_screenshot/capture-0.jpg' alt='Select to capture'></div>
-                                <div class='demo-slide' id='slide-2'><img src='omniflwos_screenshot/option-1.jpg' alt='Knowledge Review'></div>
-                                <div class='demo-slide' id='slide-3'><img src='omniflwos_screenshot/popup-view.jpg' alt='AI Insights'></div>
-                                <div class='demo-slide' id='slide-4'><img src='omniflwos_screenshot/timeline.jpg' alt='Integrations'></div>
+                                <div class='demo-slide active' id='slide-1'><img
+                                        src='omniflwos_screenshot/capture-0.jpg' alt='Select to capture'></div>
+                                <div class='demo-slide' id='slide-2'><img src='omniflwos_screenshot/option-1.jpg'
+                                        alt='Knowledge Review'></div>
+                                <div class='demo-slide' id='slide-3'><img src='omniflwos_screenshot/popup-view.jpg'
+                                        alt='AI Insights'></div>
+                                <div class='demo-slide' id='slide-4'><img src='omniflwos_screenshot/timeline.jpg'
+                                        alt='Integrations'></div>
                             </div>
                         </div>
                         <div class='demo-controls'>
                             <button id='prev-slide'>←</button>
                             <div class='controls-center'>
                                 <div class='demo-captions' id='demo-captions'>
-                                    <div class='control-caption active' data-i18n='demoCapture'>One-click Capture: Semantic context preserved.</div>
-                                    <div class='control-caption' data-i18n='demoReview'>Knowledge Review: Daily insights generated by AI.</div>
-                                    <div class='control-caption' data-i18n='demoInsight'>Daily Digest: AI-driven themes and takeaways.</div>
-                                    <div class='control-caption' data-i18n='demoSync'>Seamless Sync: Obsidian, Notion & Google Drive.</div>
+                                    <div class='control-caption active' data-i18n='demoCapture'>One-click Capture:
+                                        Semantic context preserved.</div>
+                                    <div class='control-caption' data-i18n='demoReview'>Knowledge Review: Daily insights
+                                        generated by AI.</div>
+                                    <div class='control-caption' data-i18n='demoInsight'>Daily Digest: AI-driven themes
+                                        and takeaways.</div>
+                                    <div class='control-caption' data-i18n='demoSync'>Seamless Sync: Obsidian, Notion &
+                                        Google Drive.</div>
                                 </div>
                                 <div class='slide-dots' id='slide-pips'></div>
                             </div>
@@ -72,24 +95,58 @@
             <h2 class='section-title animate-fade-in' data-i18n='whyOmniFlows'>Why OmniFlows?</h2>
             <div class='case-grid'>
                 <div class='case-card animate-fade-in delay-1'>
-                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-microscope'><path d='M6 18h8' /><path d='M3 22h18' /><path d='M14 22a7 7 0 1 0 0-14h-1' /><path d='M9 14h2' /><path d='M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z' /><path d='M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3' /></svg></div>
+                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'
+                            viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'
+                            stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-microscope'>
+                            <path d='M6 18h8' />
+                            <path d='M3 22h18' />
+                            <path d='M14 22a7 7 0 1 0 0-14h-1' />
+                            <path d='M9 14h2' />
+                            <path d='M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z' />
+                            <path d='M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3' />
+                        </svg></div>
                     <h3 data-i18n='case1Title'>Reading Depth Model</h3>
-                    <p data-i18n='case1Text'>We don't just track time. We measure dwell time and scroll depth to distinguish curiosity from deep study.</p>
+                    <p data-i18n='case1Text'>We don't just track time. We measure dwell time and scroll depth to
+                        distinguish curiosity from deep study.</p>
                 </div>
                 <div class='case-card animate-fade-in delay-2'>
-                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-focus'><circle cx='12' cy='12' r='3' /><path d='M3 7V5a2 2 0 0 1 2-2h2' /><path d='M17 3h2a2 2 0 0 1 2 2v2' /><path d='M21 17v2a2 2 0 0 1-2 2h-2' /><path d='M7 21H5a2 2 0 0 1-2-2v-2' /></svg></div>
+                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'
+                            viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'
+                            stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-focus'>
+                            <circle cx='12' cy='12' r='3' />
+                            <path d='M3 7V5a2 2 0 0 1 2-2h2' />
+                            <path d='M17 3h2a2 2 0 0 1 2 2v2' />
+                            <path d='M21 17v2a2 2 0 0 1-2 2h-2' />
+                            <path d='M7 21H5a2 2 0 0 1-2-2v-2' />
+                        </svg></div>
                     <h3 data-i18n='case2Title'>Semantic Block Capture</h3>
-                    <p data-i18n='case2Text'>Capture complete logical units, not just sentences. Every highlight retains its original context automatically.</p>
+                    <p data-i18n='case2Text'>Capture complete logical units, not just sentences. Every highlight retains
+                        its original context automatically.</p>
                 </div>
                 <div class='case-card animate-fade-in delay-3'>
-                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-refresh-cw'><path d='M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8' /><path d='M21 3v5h-5' /><path d='M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16' /><path d='M3 21v-5h5' /></svg></div>
+                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'
+                            viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'
+                            stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-refresh-cw'>
+                            <path d='M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8' />
+                            <path d='M21 3v5h-5' />
+                            <path d='M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16' />
+                            <path d='M3 21v-5h5' />
+                        </svg></div>
                     <h3 data-i18n='case3Title'>Cross-Platform Sync</h3>
-                    <p data-i18n='case3Text'>Your knowledge assets exported directly to Obsidian, Notion, or your private cloud.</p>
+                    <p data-i18n='case3Text'>Your knowledge assets exported directly to Obsidian, Notion, or your
+                        private cloud.</p>
                 </div>
                 <div class='case-card animate-fade-in delay-4'>
-                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.579-6.579a2.426 2.426 0 0 0 0-3.42z' /><circle cx='7.5' cy='7.5' r='.5' fill='currentColor' /></svg></div>
+                    <div class='icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'
+                            viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'
+                            stroke-linecap='round' stroke-linejoin='round'>
+                            <path
+                                d='M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.579-6.579a2.426 2.426 0 0 0 0-3.42z' />
+                            <circle cx='7.5' cy='7.5' r='.5' fill='currentColor' />
+                        </svg></div>
                     <h3 data-i18n='case4Title'>Custom Tagging</h3>
-                    <p data-i18n='case4Text'>Organize your highlights with multi-select tags. Perfect for building a thematic knowledge system.</p>
+                    <p data-i18n='case4Text'>Organize your highlights with multi-select tags. Perfect for building a
+                        thematic knowledge system.</p>
                 </div>
             </div>
         </div>
@@ -97,23 +154,76 @@
     <section class='integrations' id='integrations'>
         <div class='container text-center'>
             <h2 class='section-title' data-i18n='integHeader'>Knowledge Export. Seamless Persistence.</h2>
-            <p class='section-subtext mx-auto' data-i18n='integSub'>OmniFlows ensures your data never becomes an island. Build your lifelong knowledge base through deep cross-platform integration.</p>
+            <p class='section-subtext mx-auto' data-i18n='integSub'>OmniFlows ensures your data never becomes an island.
+                Build your lifelong knowledge base through deep cross-platform integration.</p>
             <div class='integ-row'>
                 <div class='integ-item card animate-fade-in delay-1'>
-                    <div class='integ-icon-small obsidian-color'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path d='M9.44 0a.705.705 0 0 0-.54.23L4.2 4.4a1.49 1.49 0 0 0-.46 1.07v13.06c0 .41.16.8.46 1.1l4.7 4.14a1.05 1.05 0 0 0 1.4 0l4.7-4.14c.3-.3.46-.69.46-1.1V5.47c0-.41-.16-.8-.46-1.1L10.3.23a.705.705 0 0 0-.86-.23zM8.8 1.4L11.75 3 8 13.9 6.2 5.5l2.6-4.1zm6.4 0L17.8 5.5 16 13.9 12.25 3 15.2 1.4zM8.8 14.5l3.2 6.5 3.2-6.5L12 21.5 8.8 14.5z' fill='currentColor' /></svg></div>
-                    <div class='integ-info text-left'><h3 data-i18n='integ1Title'>Obsidian Sync</h3><p data-i18n='integ1Text'>Real-time synchronization of browsing trajectories and knowledge items to your Obsidian vault.</p></div>
+                    <div class='integ-icon-small obsidian-color'><svg xmlns='http://www.w3.org/2000/svg'
+                            viewBox='0 0 24 24' width='24' height='24'>
+                            <path
+                                d='M9.44 0a.705.705 0 0 0-.54.23L4.2 4.4a1.49 1.49 0 0 0-.46 1.07v13.06c0 .41.16.8.46 1.1l4.7 4.14a1.05 1.05 0 0 0 1.4 0l4.7-4.14c.3-.3.46-.69.46-1.1V5.47c0-.41-.16-.8-.46-1.1L10.3.23a.705.705 0 0 0-.86-.23zM8.8 1.4L11.75 3 8 13.9 6.2 5.5l2.6-4.1zm6.4 0L17.8 5.5 16 13.9 12.25 3 15.2 1.4zM8.8 14.5l3.2 6.5 3.2-6.5L12 21.5 8.8 14.5z'
+                                fill='currentColor' />
+                        </svg></div>
+                    <div class='integ-info text-left'>
+                        <h3 data-i18n='integ1Title'>Obsidian Sync</h3>
+                        <p data-i18n='integ1Text'>Real-time synchronization of browsing trajectories and knowledge items
+                            to your Obsidian vault.</p>
+                    </div>
                 </div>
                 <div class='integ-item card animate-fade-in delay-2'>
-                    <div class='integ-icon-small notion-color'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path d='M4.459 4.208c.746.606 1.026.56 2.428.466l12.214-.84c1.213-.093 1.493.093 1.866.42l.093.093c.373.373.466.746.466 1.12v12.404c0 .84-.28 1.213-.933 1.493l-13.055.84c-.746.047-1.12-.139-1.493-.513l-.28-.28c-.373-.373-.559-.79-.559-1.306V5.421c0-.653.28-1.026.753-1.213zm1.772 1.261v11.937c0 .28.187.373.466.373h.093c.373 0 .466-.093.56-.373l.093-.373v-9.699l7.091 10.169c.42.56.746.7 1.213.653l.42-.047c.56-.047.886-.42.886-.98V5.376c0-.373-.187-.56-.56-.56h-.28c-.373 0-.56.187-.56.513v9.093l-6.251-9.281c-.42-.513-.746-.746-1.26-.653l-.324.047c-.28.047-.506.241-.588.835z' fill='currentColor' /></svg></div>
-                    <div class='integ-info text-left'><h3 data-i18n='integ4Title'>Notion Integration</h3><p data-i18n='integ4Text'>Directly store and organize your highlights in Notion databases with automated properties.</p></div>
+                    <div class='integ-icon-small notion-color'><svg xmlns='http://www.w3.org/2000/svg'
+                            viewBox='0 0 24 24' width='24' height='24'>
+                            <path
+                                d='M4.459 4.208c.746.606 1.026.56 2.428.466l12.214-.84c1.213-.093 1.493.093 1.866.42l.093.093c.373.373.466.746.466 1.12v12.404c0 .84-.28 1.213-.933 1.493l-13.055.84c-.746.047-1.12-.139-1.493-.513l-.28-.28c-.373-.373-.559-.79-.559-1.306V5.421c0-.653.28-1.026.753-1.213zm1.772 1.261v11.937c0 .28.187.373.466.373h.093c.373 0 .466-.093.56-.373l.093-.373v-9.699l7.091 10.169c.42.56.746.7 1.213.653l.42-.047c.56-.047.886-.42.886-.98V5.376c0-.373-.187-.56-.56-.56h-.28c-.373 0-.56.187-.56.513v9.093l-6.251-9.281c-.42-.513-.746-.746-1.26-.653l-.324.047c-.28.047-.506.241-.588.835z'
+                                fill='currentColor' />
+                        </svg></div>
+                    <div class='integ-info text-left'>
+                        <h3 data-i18n='integ4Title'>Notion Integration</h3>
+                        <p data-i18n='integ4Text'>Directly store and organize your highlights in Notion databases with
+                            automated properties.</p>
+                    </div>
                 </div>
                 <div class='integ-item card animate-fade-in delay-3'>
-                    <div class='integ-icon-small drive-color'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 87.3 78' width='24' height='24'><path d='m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.25 4.5z' fill='#0066da' /><path d='m43.65 24.1-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.35 43.9c-.85 1.45-1.25 3-1.25 4.5l27.5.05z' fill='#00ac47' /><path d='m70.7 76.8c1.35-.8 2.5-1.9 3.3-3.3l12.05-20.85c.8-1.4 1.25-3 1.25-4.55h-27.5l-.05.1 10.95 18.25z' fill='#ea4335' /><path d='m43.65 24.1 13.75 23.8h27.45c0-1.55-.4-3.1-1.25-4.55l-25.35-43.9c-.8-1.4-1.95-2.5-3.3-3.3z' fill='#fbbc04' /><path d='m43.65 77.95 13.75-23.8h-27.5l-13.75 23.8c1.35.8 2.9 1.2 4.55 1.2h21.5c1.6 0 3.1-.4 4.45-1.2z' fill='#167ee6' /><path d='m27.5 54.15 13.75 23.8 13.75-23.8-13.75-23.8z' fill='#34a853' /></svg></div>
-                    <div class='integ-info text-left'><h3 data-i18n='integ2Title'>Google Drive Backup</h3><p data-i18n='integ2Text'>Securely back up all captured data and configuration to your personal cloud.</p></div>
+                    <div class='integ-icon-small drive-color'><svg xmlns='http://www.w3.org/2000/svg'
+                            viewBox='0 0 87.3 78' width='24' height='24'>
+                            <path
+                                d='m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.25 4.5z'
+                                fill='#0066da' />
+                            <path
+                                d='m43.65 24.1-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.35 43.9c-.85 1.45-1.25 3-1.25 4.5l27.5.05z'
+                                fill='#00ac47' />
+                            <path
+                                d='m70.7 76.8c1.35-.8 2.5-1.9 3.3-3.3l12.05-20.85c.8-1.4 1.25-3 1.25-4.55h-27.5l-.05.1 10.95 18.25z'
+                                fill='#ea4335' />
+                            <path
+                                d='m43.65 24.1 13.75 23.8h27.45c0-1.55-.4-3.1-1.25-4.55l-25.35-43.9c-.8-1.4-1.95-2.5-3.3-3.3z'
+                                fill='#fbbc04' />
+                            <path
+                                d='m43.65 77.95 13.75-23.8h-27.5l-13.75 23.8c1.35.8 2.9 1.2 4.55 1.2h21.5c1.6 0 3.1-.4 4.45-1.2z'
+                                fill='#167ee6' />
+                            <path d='m27.5 54.15 13.75 23.8 13.75-23.8-13.75-23.8z' fill='#34a853' />
+                        </svg></div>
+                    <div class='integ-info text-left'>
+                        <h3 data-i18n='integ2Title'>Google Drive Backup</h3>
+                        <p data-i18n='integ2Text'>Securely back up all captured data and configuration to your personal
+                            cloud.</p>
+                    </div>
                 </div>
                 <div class='integ-item card animate-fade-in delay-4'>
-                    <div class='integ-icon-small ai-color'><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-brain'><path d='M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .52 8.21 3 3 0 1 0 5.996-.124A3 3 0 1 0 16 22a3 3 0 1 0 5.996-.124 4 4 0 0 0 .52-8.21 4 4 0 0 0-2.526-5.77A3 3 0 1 0 12 5Z' /><path d='M9 13a4.5 4.5 0 0 0 3-4' /><path d='M15 13a4.5 4.5 0 0 1-3-4' /><path d='M12 13V8' /></svg></div>
-                    <div class='integ-info text-left'><h3 data-i18n='integ3Title'>Local LLM Support</h3><p data-i18n='integ3Text'>Run categorization and summarization locally for maximum privacy and performance.</p></div>
+                    <div class='integ-icon-small ai-color'><svg xmlns='http://www.w3.org/2000/svg' width='20'
+                            height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'
+                            stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-brain'>
+                            <path
+                                d='M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .52 8.21 3 3 0 1 0 5.996-.124A3 3 0 1 0 16 22a3 3 0 1 0 5.996-.124 4 4 0 0 0 .52-8.21 4 4 0 0 0-2.526-5.77A3 3 0 1 0 12 5Z' />
+                            <path d='M9 13a4.5 4.5 0 0 0 3-4' />
+                            <path d='M15 13a4.5 4.5 0 0 1-3-4' />
+                            <path d='M12 13V8' />
+                        </svg></div>
+                    <div class='integ-info text-left'>
+                        <h3 data-i18n='integ3Title'>Local LLM Support</h3>
+                        <p data-i18n='integ3Text'>Run categorization and summarization locally for maximum privacy and
+                            performance.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,12 +231,23 @@
     <footer>
         <div class='container footer-simple'>
             <div class='footer-brand'>
-                <div class='logo'><img src='../omniflows-extension/omniflows-icon-128.png' alt='OmniFlows Logo' class='logo-img'><span class='heading-serif'>OmniFlows</span></div>
+                <div class='logo'><img src='./omniflows-icon-128.png' alt='OmniFlows Logo' class='logo-img'><span
+                        class='heading-serif'>OmniFlows</span></div>
                 <p class='footer-tagline' data-i18n='footerTagline'>Building the future of digital memory.</p>
             </div>
             <div class='footer-info'>
-                <div class='footer-contact-item'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-twitter'><path d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' /></svg><a href='https://x.com/omniflows_net' target='_blank'>@omniflows_net</a></div>
-                <div class='footer-contact-item'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-mail'><rect width='20' height='16' x='2' y='4' rx='2' /><path d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7' /></svg><a href='mailto:support@omniflows.net'>support@omniflows.net</a></div>
+                <div class='footer-contact-item'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'
+                        viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'
+                        stroke-linejoin='round' class='lucide lucide-twitter'>
+                        <path
+                            d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' />
+                    </svg><a href='https://x.com/omniflows_net' target='_blank'>@omniflows_net</a></div>
+                <div class='footer-contact-item'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'
+                        viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'
+                        stroke-linejoin='round' class='lucide lucide-mail'>
+                        <rect width='20' height='16' x='2' y='4' rx='2' />
+                        <path d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7' />
+                    </svg><a href='mailto:support@omniflows.net'>support@omniflows.net</a></div>
             </div>
             <p class='copyright'>&copy; 2026 OmniFlows.net</p>
         </div>
@@ -144,7 +265,7 @@
                 demoSync: 'Seamless Sync: Obsidian, Notion & Google Drive.',
                 whyOmniFlows: 'Why OmniFlows?',
                 case1Title: 'Reading Depth Model',
-                case1Text: 'We don't just track time. We measure dwell time and scroll depth to distinguish curiosity from deep study.',
+                case1Text: 'We don't just track time.We measure dwell time and scroll depth to distinguish curiosity from deep study.',
                 case2Title: 'Semantic Block Capture',
                 case2Text: 'Capture complete logical units, not just sentences. Every highlight retains its original context automatically.',
                 case3Title: 'Cross-Platform Sync',
@@ -377,4 +498,5 @@
         setLanguage(savedLang);
     </script>
 </body>
+
 </html>
