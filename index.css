@@ -183,6 +183,11 @@ h3,
     max-width: 500px;
 }
 
+.hero-highlight {
+    font-weight: 600;
+    color: var(--primary-sage);
+}
+
 .hero-btns {
     display: flex;
     gap: 16px;
