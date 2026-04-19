@@ -52,11 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleTheaterMode(active) {
         isTheaterMode = active;
         if (active) {
-            heroDemo.classList.add('theater-mode');
-            document.body.style.overflow = 'hidden';
+            document.body.classList.add('theater-mode-active');
+            // Explicitly kill inline styles from the entrance animation script
+            heroDemo.style.transform = 'none';
+            heroDemo.style.transition = 'none';
         } else {
-            heroDemo.classList.remove('theater-mode');
-            document.body.style.overflow = '';
+            document.body.classList.remove('theater-mode-active');
+            // Restore animation styles properties if needed, 
+            // but the scroll observer will likely re-apply them if we just clear them.
+            heroDemo.style.transform = '';
+            heroDemo.style.transition = '';
         }
     }
 
@@ -73,7 +78,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isTheaterMode) toggleTheaterMode(false);
+        if (!isTheaterMode) return;
+        
+        if (e.key === 'Escape') toggleTheaterMode(false);
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+            nextSlide();
+        }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+            prevSlide();
+        }
+    });
+
+    // Handle clicks on theater overlay for navigation
+    heroDemo.addEventListener('click', (e) => {
+        if (!isTheaterMode) return;
+        
+        // Ignore clicks on controls or close button
+        if (e.target.closest('.demo-controls') || e.target.closest('.theater-close')) return;
+        
+        // Navigation by screen half
+        const width = window.innerWidth;
+        if (e.clientX < width / 2) {
+            prevSlide();
+        } else {
+            nextSlide();
+        }
+    });
+
+    // Handle physical right-click for 'Previous' button
+    document.addEventListener('contextmenu', (e) => {
+        if (isTheaterMode) {
+            e.preventDefault();
+            prevSlide();
+        }
     });
 
     nextBtn.addEventListener('click', nextSlide);

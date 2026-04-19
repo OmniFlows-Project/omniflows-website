@@ -817,47 +817,31 @@ footer {
     box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
 }
 
-.hero-demo.theater-mode {
-    transform: none !important;
-    transition: none !important;
-    z-index: 2000;
+/* Bulletproof Theater Mode centered logic */
+body.theater-mode-active {
+    overflow: hidden !important;
 }
 
-.hero-demo.theater-mode .demo-window {
-    cursor: default;
-    transform: none;
-}
-
-.theater-mode-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.85);
+body.theater-mode-active #demo {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(15, 23, 42, 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    z-index: 1500;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-}
-
-.hero-demo.theater-mode~.theater-mode-backdrop {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* We'll use a wrapper approach in CSS to handle the fixed positioning */
-.hero-demo.theater-mode .demo-display {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
-    padding: 40px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    animation: theaterFadeIn 0.3s ease-out;
+    padding: 24px;
+    margin: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    /* Kill any animations/transforms from the grid/intersection observer */
+    transform: none !important;
+    transition: none !important;
+    animation: theaterFadeIn 0.3s ease-out !important;
 }
 
 @keyframes theaterFadeIn {
@@ -865,17 +849,27 @@ footer {
     to { opacity: 1; }
 }
 
-.hero-demo.theater-mode .demo-window {
+body.theater-mode-active .demo-display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body.theater-mode-active .demo-window {
     width: 90vw;
     max-width: 1100px;
     height: 80vh;
     max-height: 800px;
+    cursor: default;
+    transform: none !important;
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
 }
 
-.hero-demo.theater-mode .demo-content {
+body.theater-mode-active .demo-content {
     flex: 1;
     height: auto;
 }
@@ -884,12 +878,12 @@ footer {
     position: absolute;
     top: 12px;
     right: 12px;
-    width: 32px;
-    height: 32px;
-    background: rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 50%;
-    color: var(--text-muted);
+    color: white;
     font-size: 24px;
     display: flex;
     align-items: center;
@@ -901,24 +895,22 @@ footer {
     transition: all 0.2s ease;
 }
 
-.hero-demo.theater-mode .theater-close {
+body.theater-mode-active .theater-close {
     opacity: 1;
     visibility: visible;
 }
 
 .theater-close:hover {
-    background: rgba(0, 0, 0, 0.2);
-    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.2);
     transform: rotate(90deg);
 }
 
 @media (max-width: 768px) {
-    .hero-demo.theater-mode .demo-display {
-        padding: 20px;
+    body.theater-mode-active #demo {
+        padding: 12px;
     }
-
-    .hero-demo.theater-mode .demo-window {
+    body.theater-mode-active .demo-window {
         width: 100%;
-        height: 60vh;
+        height: 70vh;
     }
 }
