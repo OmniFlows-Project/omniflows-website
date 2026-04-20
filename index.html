@@ -546,6 +546,11 @@
             }
             languageSelect.value = savedLang;
             setLanguage(savedLang);
+            // Track initial language distribution
+            trackEvent('set_language', { 
+                language: savedLang, 
+                is_initial: true 
+            });
         }
 
         // Track CTA Clicks
