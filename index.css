@@ -107,6 +107,14 @@ h3,
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .logo-img {
@@ -672,7 +680,7 @@ section {
 
 /* Footer */
 footer {
-    padding: 80px 0 40px;
+    padding: 32px 0 24px;
     background: white;
     border-top: 1px solid var(--border-color);
 }
@@ -682,7 +690,7 @@ footer {
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 32px;
 }
 
 .footer-brand {
@@ -692,6 +700,14 @@ footer {
     align-items: flex-start;
     gap: 16px;
     text-align: left;
+}
+
+.footer-brand .logo-img {
+    height: 28px;
+}
+
+.footer-brand .logo span {
+    font-size: 1.25rem;
 }
 
 .footer-brand .logo {
@@ -745,7 +761,7 @@ footer {
 }
 
 .footer-bottom {
-    padding-top: 32px;
+    padding-top: 16px;
     border-top: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
