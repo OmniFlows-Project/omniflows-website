@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Integration Setup - OmniFlows</title>
+    <style>
+        :root {
+            --bg-soothing: #F6F8F6;
+            --primary-sage: #4A6741;
+            --primary-sage-light: #6B8E60;
+            --text-main: #2D3436;
+            --text-muted: #636E72;
+            --border-color: #E2E8F0;
+            --card-bg: #FFFFFF;
+            --accent-blue: #8EACCD;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-soothing);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            color: var(--primary-sage);
+            margin-bottom: 16px;
+        }
+
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-toggle {
+            background: var(--primary-sage-muted);
+            border: 1px solid var(--primary-sage);
+            color: var(--primary-sage);
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-num {
+            background: var(--primary-sage);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #e11d48;
+        }
+
+        .alert {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-title {
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 4px;
+        }
+
+        .footer-nav {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .btn-back {
+            color: var(--primary-sage);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bilingual-zh {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: block;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Obsidian Integration Guide</h1>
+            <p>Setup the Local REST API to connect OmniFlows to your vault.<br>
+                <span class="bilingual-zh">配置 Local REST API 插件，将 OmniFlows 连接至您的笔记库。</span>
+            </p>
+        </header>
+
+        <section>
+            <h2>
+                <div class="step-num">1</div> Install Local REST API
+                <span class="bilingual-zh">安装插件</span>
+            </h2>
+            <p>OmniFlows communicates with Obsidian using the <strong>Local REST API</strong> community plugin.</p>
+            <ol>
+                <li>Open Obsidian Settings and go to <strong>Community plugins</strong>.</li>
+                <li>Click <strong>Browse</strong> and search for <code>Local REST API</code>.</li>
+                <li>Click <strong>Install</strong> and then <strong>Enable</strong>.</li>
+            </ol>
+            <p class="bilingual-zh">1. 打开 Obsidian 设置，进入“第三方插件 (Community plugins)”。<br>
+                2. 点击“浏览 (Browse)”并搜索 <code>Local REST API</code>。<br>
+                3. 点击安装并启用插件。</p>
+        </section>
+
+        <section>
+            <h2>
+                <div class="step-num">2</div> Get Your API Key
+                <span class="bilingual-zh">获取 API Key</span>
+            </h2>
+            <p>Once enabled, you need to copy the authorization token.</p>
+            <ol>
+                <li>Go to the <strong>Local REST API</strong> settings within Obsidian.</li>
+                <li>Find the <strong>API Key</strong> section.</li>
+                <li>Click the <strong>Copy</strong> button or manually copy the long string of characters.</li>
+            </ol>
+            <p class="bilingual-zh">1. 进入 <code>Local REST API</code> 插件的设置页面。<br>
+                2. 找到 “API Key” 部分。<br>
+                3. 点击复制按钮，或手动获取那段长字符串令牌。</p>
+        </section>
+
+        <section>
+            <h2>
+                <div class="step-num">3</div> Configure OmniFlows
+                <span class="bilingual-zh">配置插件</span>
+            </h2>
+            <p>Open OmniFlows Extension <strong>Options</strong> page and fill in the details:</p>
+            <ul>
+                <li><strong>Protocol:</strong> Choose <code>http</code>.</li>
+                <li><strong>Port:</strong> Usually <code>27123</code>. Check your plugin settings if unsure.</li>
+                <li><strong>API Key:</strong> Paste the key you copied in Step 2.</li>
+            </ul>
+            <p class="bilingual-zh">打开 OmniFlows 插件的“选项”页面并填写：<br>
+                • <strong>Protocol:</strong> 请选择 <code>http</code>。<br>
+                • <strong>Port:</strong> 通常为 <code>27123</code>。<br>
+                • <strong>API Key:</strong> 粘贴你在上一步复制的密钥。</p>
+        </section>
+
+        <section>
+            <h2>
+                <div class="step-num">!</div> Troubleshooting
+                <span class="bilingual-zh">故障排查</span>
+            </h2>
+            <div class="alert">
+                <div class="alert-title">Connection Failed? / 连接失败？</div>
+                <p>1. <strong>Protocol Mismatch:</strong> Ensure you selected <code>http</code> in OmniFlows. HTTPS is currently not supported due to browser security restrictions on local self-signed certificates.<br>
+                <span class="bilingual-zh">确保在 OmniFlows 中选择了 <code>http</code>。由于浏览器对本地自签名证书的安全限制，目前不支持 HTTPS。</span></p>
+                <p>2. <strong>Plugin Status:</strong> Ensure the plugin status in Obsidian is "Active" (Green indicator).<br>
+                <span class="bilingual-zh">确保 Obsidian 中的插件状态显示为绿色“Active”。</span></p>
+                <p>3. <strong>Port Conflict:</strong> Check if another application is using the same port.<br>
+                <span class="bilingual-zh">检查是否有其他程序占用了相同的端口。</span></p>
+            </div>
+        </section>
+
+        <div class="footer-nav">
+            <a href="index.html" class="btn-back">← Back to Home / 返回首页</a>
+        </div>
+    </div>
+</body>
+
+</html>

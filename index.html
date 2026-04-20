@@ -249,31 +249,41 @@
         </div>
     </section>
     <footer>
-        <div class='container footer-simple'>
+        <div class='container footer-top'>
             <div class='footer-brand'>
-                <div class='logo'><img src='./img/icon-180.png' alt='OmniFlows Logo' class='logo-img'><span
-                        class='heading-serif'>OmniFlows</span></div>
+                <div class='logo'>
+                    <img src='./img/icon-180.png' alt='OmniFlows Logo' class='logo-img'>
+                    <span class='heading-serif'>OmniFlows</span>
+                </div>
                 <p class='footer-tagline' data-i18n='footerTagline'>Building the future of digital memory.</p>
             </div>
             <div class='footer-info'>
-                <div class='footer-contact-item'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'
-                        viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'
-                        stroke-linejoin='round' class='lucide lucide-twitter'>
-                        <path
-                            d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' />
-                    </svg><a href='https://x.com/omniflows_net' target='_blank'>@omniflows_net</a></div>
-                <div class='footer-contact-item'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'
-                        viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'
-                        stroke-linejoin='round' class='lucide lucide-mail'>
-                        <rect width='20' height='16' x='2' y='4' rx='2' />
-                        <path d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7' />
-                    </svg><a href='mailto:support@omniflows.net'>support@omniflows.net</a></div>
-                <div class='footer-contact-item'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'
-                        viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'
-                        stroke-linejoin='round' class='lucide lucide-shield'>
-                        <path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' />
-                    </svg><a href='privacy.html' data-i18n='footerPrivacy'>Privacy Policy</a></div>
+                <div class='footer-group'>
+                    <span class='footer-group-title' data-i18n='footerResources'>Integration Guide</span>
+                    <a href='obsidian-setup.html' class='footer-contact-item' data-i18n='footerObsidianGuide'>Obsidian</a>
+                    <a href='notion-setup.html' class='footer-contact-item' data-i18n='footerNotionGuide'>Notion</a>
+                </div>
+                <div class='footer-group'>
+                    <span class='footer-group-title' data-i18n='footerSupport'>Support</span>
+                    <a href='https://x.com/omniflows_net' target='_blank' class='footer-contact-item'>
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z'/></svg>
+                        <span>Twitter (X)</span>
+                    </a>
+                    <a href='mailto:support@omniflows.net' class='footer-contact-item'>
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='20' height='16' x='2' y='4' rx='2'/><path d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/></svg>
+                        <span>Email Support</span>
+                    </a>
+                </div>
+                <div class='footer-group'>
+                    <span class='footer-group-title' data-i18n='footerLegal'>Legal</span>
+                    <a href='privacy.html' class='footer-contact-item' data-i18n='footerPrivacy'>
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>
+                        <span>Privacy Policy</span>
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class='container footer-bottom'>
             <p class='copyright'>&copy; 2026 OmniFlows.net</p>
         </div>
     </footer>
@@ -313,10 +323,13 @@
                 footerProduct: "Product",
                 footerFeatures: "Features",
                 footerHowItWorks: "Why & How",
-                footerResources: "Resources",
+                footerResources: "Integration Guide",
                 footerSupport: "Support",
+                footerLegal: "Legal",
                 footerPrivacy: "Privacy Policy",
-                footerTerms: "Terms of Service"
+                footerTerms: "Terms of Service",
+                footerObsidianGuide: "Obsidian",
+                footerNotionGuide: "Notion"
             },
             "zh-CN": {
                 heroTitle: "捕获阅读之流",
@@ -351,10 +364,13 @@
                 footerProduct: "产品",
                 footerFeatures: "功能特色",
                 footerHowItWorks: "深度解析",
-                footerResources: "相关资源",
+                footerResources: "集成指南",
                 footerSupport: "技术支持",
+                footerLegal: "法律条款",
                 footerPrivacy: "隐私政策",
-                footerTerms: "服务条款"
+                footerTerms: "服务条款",
+                footerObsidianGuide: "Obsidian",
+                footerNotionGuide: "Notion"
             },
             de: {
                 heroTitle: "Den Lesefluss erfassen",
@@ -389,10 +405,13 @@
                 footerProduct: "Produkt",
                 footerFeatures: "Funktionen",
                 footerHowItWorks: "Warum & Wie",
-                footerResources: "Ressourcen",
+                footerResources: "Integrationshilfe",
                 footerSupport: "Support",
+                footerLegal: "Rechtliches",
                 footerPrivacy: "Datenschutz",
-                footerTerms: "AGB"
+                footerTerms: "AGB",
+                footerObsidianGuide: "Obsidian",
+                footerNotionGuide: "Notion"
             },
             fr: {
                 heroTitle: "Capturez le flux de lecture",
@@ -427,10 +446,13 @@
                 footerProduct: "Produit",
                 footerFeatures: "Fonctionnalités",
                 footerHowItWorks: "Pourquoi & Comment",
-                footerResources: "Ressources",
+                footerResources: "Guides d'intégration",
                 footerSupport: "Assistance",
+                footerLegal: "Mentions légales",
                 footerPrivacy: "Confidentialité",
-                footerTerms: "Conditions"
+                footerTerms: "Conditions",
+                footerObsidianGuide: "Obsidian",
+                footerNotionGuide: "Notion"
             },
             ja: {
                 heroTitle: "読解の「流」を捉える",
@@ -465,10 +487,13 @@
                 footerProduct: "製品",
                 footerFeatures: "特徴",
                 footerHowItWorks: "背景と仕組み",
-                footerResources: "リソース",
+                footerResources: "統合ガイド",
                 footerSupport: "サポート",
+                footerLegal: "法的事項",
                 footerPrivacy: "プライバシーポリシー",
-                footerTerms: "利用規約"
+                footerTerms: "利用規約",
+                footerObsidianGuide: "Obsidian",
+                footerNotionGuide: "Notion"
             },
             "zh-TW": {
                 heroTitle: "捕捉閱讀之流",
@@ -501,10 +526,13 @@
                 footerProduct: "產品",
                 footerFeatures: "功能特色",
                 footerHowItWorks: "深度解析",
-                footerResources: "相關資源",
+                footerResources: "集成指南",
                 footerSupport: "技術支持",
+                footerLegal: "法律條款",
                 footerPrivacy: "隱私政策",
-                footerTerms: "服務條款"
+                footerTerms: "服務條款",
+                footerObsidianGuide: "Obsidian",
+                footerNotionGuide: "Notion"
             }
         };
 

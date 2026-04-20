@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion Integration Setup - OmniFlows</title>
+    <style>
+        :root {
+            --bg-soothing: #F6F8F6;
+            --primary-sage: #4A6741;
+            --primary-sage-light: #6B8E60;
+            --text-main: #2D3436;
+            --text-muted: #636E72;
+            --border-color: #E2E8F0;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-soothing);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            color: var(--primary-sage);
+            margin-bottom: 16px;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-num {
+            background: var(--primary-sage);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #e11d48;
+        }
+
+        .alert {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-title {
+            font-weight: bold;
+            color: #166534;
+            margin-bottom: 4px;
+        }
+
+        .trouble {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .footer-nav {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .btn-back {
+            color: var(--primary-sage);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bilingual-zh {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: block;
+            margin-top: 4px;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Notion Integration Guide</h1>
+            <p>Connect OmniFlows to your Notion workspace to sync knowledge seamlessly.<br>
+                <span class="bilingual-zh">将 OmniFlows 连接至 Notion 工作区，实现知识无缝同步。</span>
+            </p>
+        </header>
+
+        <section>
+            <h2>
+                <div class="step-num">1</div> Create an Integration
+                <span class="bilingual-zh">创建分身 (Integration)</span>
+            </h2>
+            <p>You need an "Internal Integration" to allow the extension to access your Notion pages.</p>
+            <ol>
+                <li>Go to <a href="https://www.notion.so/my-integrations" target="_blank">notion.so/my-integrations</a>.</li>
+                <li>Click <strong>+ New integration</strong>.</li>
+                <li>Give it a name like <code>OmniFlows</code> and click <strong>Submit</strong>.</li>
+                <li>Copy the <strong>Internal Integration Secret</strong>. This is your API Token.</li>
+            </ol>
+            <p class="bilingual-zh">1. 访问 <a href="https://www.notion.so/my-integrations" target="_blank">notion.so/my-integrations</a>。<br>
+                2. 点击 “+ New integration”。<br>
+                3. 命名为 <code>OmniFlows</code> 并提交。<br>
+                4. 复制 “Internal Integration Secret”，这就是你的 API 令牌。</p>
+        </section>
+
+        <section>
+            <h2>
+                <div class="step-num">2</div> Prepare the Page & Connection
+                <span class="bilingual-zh">准备页面并进行关联</span>
+            </h2>
+            <p>Notion requires you to explicitly grant an integration access to a page.</p>
+            <ol>
+                <li>Create a new Page in Notion (e.g., "My Research").</li>
+                <li>Click the **...** (three dots) in the top right corner of the page.</li>
+                <li>Select <strong>Add connections</strong> and search for the <code>OmniFlows</code> integration you just created.</li>
+                <li>Confirm the connection.</li>
+            </ol>
+            <p class="bilingual-zh">1. 在 Notion 中创建一个新页面（例如“我的研究”）。<br>
+                2. 点击页面右上角的 “...” 按钮。<br>
+                3. 选择 “Add connections” (添加连接) 并搜索你刚才创建的 <code>OmniFlows</code>。<br>
+                4. 确认关联。</p>
+        </section>
+
+        <section>
+            <h2>
+                <div class="step-num">3</div> Get the Page ID
+                <span class="bilingual-zh">获取 Page ID</span>
+            </h2>
+            <p>OmniFlows needs to know where to create your research database.</p>
+            <ol>
+                <li>Copy the URL of the page you just created.</li>
+                <li>The Page ID is the <strong>32-character string</strong> at the end of the URL.</li>
+            </ol>
+            <p>Example URL: <br>
+            <code>https://www.notion.so/My-Page-347eb299574480fe9d9bdcaf8cf9be41</code><br>
+            The ID is <code>347eb299574480fe9d9bdcaf8cf9be41</code>.</p>
+            <p class="bilingual-zh">1. 复制该页面的链接。<br>
+                2. 链接末尾那串 32 位的字符即为 Page ID。</p>
+        </section>
+
+        <section>
+            <h2>
+                <div class="step-num">4</div> Finalize in OmniFlows
+                <span class="bilingual-zh">在插件中完成设置</span>
+            </h2>
+            <p>In OmniFlows Options, paste your <strong>Integration Secret</strong> and <strong>Page ID</strong>.</p>
+            <div class="alert">
+                <div class="alert-title">Automatic Setup / 自动化设置</div>
+                <p>OmniFlows will automatically create a structured database (with tags, properties, and summaries) on that page when you save your first capture.</p>
+                <p class="bilingual-zh">当你保存第一次捕获时，OmniFlows 会在该页面下自动创建一个包含所有标签、属性和摘要结构的数据库。</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>
+                <div class="step-num">!</div> Troubleshooting
+                <span class="bilingual-zh">故障排查</span>
+            </h2>
+            <div class="trouble">
+                <div class="alert-title">"Object not found" / 找不到对象？</div>
+                <p>Ensure you have completed <strong>Step 2</strong>. Even if you have the correct API Key, you must manually "Add Connection" to the specific page in Notion.<br>
+                <span class="bilingual-zh">请确保已完成第 2 步。即使 API Key 正确，你也必须手动在该页面上“添加连接”到 OmniFlows 分身。</span></p>
+                
+                <p><strong>Database ID vs Page ID:</strong> If you are connecting to an <em>existing</em> database, use its ID. If connecting to a page, use the Page ID and let OmniFlows create the database for you.<br>
+                <span class="bilingual-zh">如果你连接的是现有数据库，请使用其 ID。如果是新页面，请使用 Page ID 让插件为你自动创建。</span></p>
+            </div>
+        </section>
+
+        <div class="footer-nav">
+            <a href="index.html" class="btn-back">← Back to Home / 返回首页</a>
+        </div>
+    </div>
+</body>
+
+</html>
