@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     slides.forEach((_, i) => {
         const pip = document.createElement('span');
         if (i === 0) pip.classList.add('active');
-        pip.addEventListener('click', () => goToSlide(i));
+        pip.addEventListener('click', () => goToSlide(i, 'pip_click'));
         pipsContainer.appendChild(pip);
     });
 
     const pips = pipsContainer.querySelectorAll('span');
     const controlCaptions = document.querySelectorAll('.control-caption');
 
-    function goToSlide(n) {
+    function goToSlide(n, method = 'direct') {
         slides[currentSlide].classList.remove('active');
         pips[currentSlide].classList.remove('active');
         if (controlCaptions.length > 0) controlCaptions[currentSlide].classList.remove('active');
@@ -33,15 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
         pips[currentSlide].classList.add('active');
         if (controlCaptions.length > 0) controlCaptions[currentSlide].classList.add('active');
         
+        // Track slide change
+        if (window.trackEvent) {
+            window.trackEvent('demo_slide_nav', { 
+                slide_index: currentSlide,
+                slide_label: controlCaptions.length > 0 ? controlCaptions[currentSlide].innerText : `Slide ${currentSlide + 1}`,
+                method: method
+            });
+        }
+
         resetAutoPlay();
     }
 
-    function nextSlide() {
-        goToSlide(currentSlide + 1);
+    function nextSlide(method = 'auto') {
+        goToSlide(currentSlide + 1, method);
     }
 
-    function prevSlide() {
-        goToSlide(currentSlide - 1);
+    function prevSlide(method = 'auto') {
+        goToSlide(currentSlide - 1, method);
     }
 
     function resetAutoPlay() {
@@ -63,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
             heroDemo.style.transform = '';
             heroDemo.style.transition = '';
         }
+
+        // Track theater mode toggle
+        if (window.trackEvent) {
+            window.trackEvent('demo_theater_mode', { action: active ? 'enter' : 'exit' });
+        }
     }
 
     // Toggle theater mode on demo window click
@@ -82,10 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (e.key === 'Escape') toggleTheaterMode(false);
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-            nextSlide();
+            nextSlide('keyboard');
         }
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
-            prevSlide();
+            prevSlide('keyboard');
         }
     });
 
@@ -99,9 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Navigation by screen half
         const width = window.innerWidth;
         if (e.clientX < width / 2) {
-            prevSlide();
+            prevSlide('theater_click');
         } else {
-            nextSlide();
+            nextSlide('theater_click');
         }
     });
 
@@ -109,12 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('contextmenu', (e) => {
         if (isTheaterMode) {
             e.preventDefault();
-            prevSlide();
+            prevSlide('theater_right_click');
         }
     });
 
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', () => nextSlide('button_click'));
+    prevBtn.addEventListener('click', () => prevSlide('button_click'));
 
     // Initial autoplay
     resetAutoPlay();

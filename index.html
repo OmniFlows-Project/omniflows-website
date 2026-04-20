@@ -12,6 +12,22 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/icon-16.png">
     <link rel='stylesheet' href='index.css'>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T52M4HH110"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-T52M4HH110');
+
+        // Helper to track custom events
+        function trackEvent(name, params = {}) {
+            if (typeof gtag === 'function') {
+                gtag('event', name, params);
+                // console.log(`[Analytics] Tracked: ${name}`, params);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -504,7 +520,11 @@
             }
         }
         if (languageSelect) {
-            languageSelect.addEventListener("change", e => setLanguage(e.target.value));
+            languageSelect.addEventListener("change", e => {
+                const lang = e.target.value;
+                setLanguage(lang);
+                trackEvent('set_language', { language: lang });
+            });
             let savedLang = "en";
             try {
                 savedLang = localStorage.getItem("omni-lang");
@@ -527,6 +547,40 @@
             languageSelect.value = savedLang;
             setLanguage(savedLang);
         }
+
+        // Track CTA Clicks
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const text = e.target.innerText || e.target.getAttribute('data-i18n');
+                trackEvent('cta_click', { 
+                    button_name: text,
+                    target_url: e.target.href 
+                });
+            });
+        });
+
+        // Track Social/Contact Links
+        document.querySelectorAll('.footer-contact-item a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const type = link.href.startsWith('mailto:') ? 'email' : 'x_twitter';
+                trackEvent('contact_click', {
+                    contact_type: type,
+                    target_url: link.href
+                });
+            });
+        });
+
+        // Track Dwell Time Milestones
+        const milestones = [
+            { time: 30000, label: '30s' },
+            { time: 60000, label: '60s' },
+            { time: 180000, label: '3m' }
+        ];
+        milestones.forEach(m => {
+            setTimeout(() => {
+                trackEvent('time_on_page', { duration: m.label });
+            }, m.time);
+        });
     </script>
 </body>
 
