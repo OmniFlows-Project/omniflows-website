@@ -314,7 +314,7 @@
                 footerTerms: "Terms of Service"
             },
             "zh-CN": {
-                heroTitle: "捕捉阅读之流",
+                heroTitle: "捕获阅读之流",
                 heroSub: "<span class='hero-highlight'>以此构建你的私域知识体系。</span>OmniFlows 捕捉阅读轨迹，将碎片化浏览转化为结构化知识资产。",
                 ctaLearnMore: "立即体验",
                 demoCapture: "一键捕捉：自动保留语义块完整上下文。",
@@ -547,9 +547,9 @@
             languageSelect.value = savedLang;
             setLanguage(savedLang);
             // Track initial language distribution
-            trackEvent('set_language', { 
-                language: savedLang, 
-                is_initial: true 
+            trackEvent('set_language', {
+                language: savedLang,
+                is_initial: true
             });
         }
 
@@ -557,9 +557,9 @@
         document.querySelectorAll('.btn-primary').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const text = e.target.innerText || e.target.getAttribute('data-i18n');
-                trackEvent('cta_click', { 
+                trackEvent('cta_click', {
                     button_name: text,
-                    target_url: e.target.href 
+                    target_url: e.target.href
                 });
             });
         });
