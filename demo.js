@@ -130,6 +130,60 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => nextSlide('button_click'));
     prevBtn.addEventListener('click', () => prevSlide('button_click'));
 
+    // Gesture Detection
+    let wheelCooldown = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const GESTURE_THRESHOLD = 30; // Lowered from 50
+
+    // Trackpad swipe detection (using deltaX)
+    demoWindow.addEventListener('wheel', (e) => {
+        // If we are definitely scrolling horizontally
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 10) {
+            // Prevent browser back/forward navigation
+            if (e.cancelable) e.preventDefault();
+            
+            if (!wheelCooldown && Math.abs(e.deltaX) > GESTURE_THRESHOLD) {
+                if (e.deltaX > 0) {
+                    nextSlide('trackpad_swipe');
+                } else {
+                    prevSlide('trackpad_swipe');
+                }
+                triggerWheelCooldown();
+            }
+        }
+    }, { passive: false });
+
+    function triggerWheelCooldown() {
+        wheelCooldown = true;
+        setTimeout(() => {
+            wheelCooldown = false;
+        }, 600); // Slightly reduced cooldown
+    }
+
+    // Touch swipe detection
+    demoWindow.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    demoWindow.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+        
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
+
+        // Ensure it's mostly a horizontal swipe
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > GESTURE_THRESHOLD) {
+            if (diffX > 0) {
+                nextSlide('touch_swipe');
+            } else {
+                prevSlide('touch_swipe');
+            }
+        }
+    }, { passive: true });
+
     // Initial autoplay
     resetAutoPlay();
 
