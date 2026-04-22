@@ -289,79 +289,6 @@
     <script src="i18n.js"></script>
     <script>
         // Track CTA Clicks
-        document.querySelectorAll('.btn-primary').forEach(btn => {   integ3Text: "在本地運行分類和摘要，實現最高的隱私和性能。",
-                integ4Title: "Notion 集成",
-                integ4Text: "將高亮直接存儲到 Notion 數據庫，並自動填充結構化屬性。",
-                footerTagline: "構築數位記憶的未来。",
-                footerProduct: "產品",
-                footerFeatures: "功能特色",
-                footerHowItWorks: "深度解析",
-                footerResources: "集成指南",
-                footerSupport: "技術支持",
-                footerLegal: "法律條款",
-                footerPrivacy: "隱私政策",
-                footerTerms: "服務條款",
-                footerObsidianGuide: "Obsidian",
-                footerNotionGuide: "Notion"
-            }
-        };
-
-        const languageSelect = document.getElementById("language-select");
-        function setLanguage(lang) {
-            try {
-                const t = translations[lang] || translations.en;
-                document.querySelectorAll("[data-i18n]").forEach(el => {
-                    const key = el.getAttribute("data-i18n");
-                    const translation = t[key];
-                    if (translation) {
-                        if (key === "heroSub") {
-                            el.innerHTML = translation;
-                        } else {
-                            el.textContent = translation;
-                        }
-                    }
-                });
-                document.documentElement.lang = lang;
-                localStorage.setItem("omni-lang", lang);
-            } catch (e) {
-                console.error("Language switch failed:", e);
-            }
-        }
-        if (languageSelect) {
-            languageSelect.addEventListener("change", e => {
-                const lang = e.target.value;
-                setLanguage(lang);
-                trackEvent('set_language', { language: lang });
-            });
-            let savedLang = "en";
-            try {
-                savedLang = localStorage.getItem("omni-lang");
-            } catch (e) { }
-
-            if (!savedLang) {
-                const navLang = navigator.language.toLowerCase();
-                if (navLang.startsWith("zh")) {
-                    savedLang = (navLang.includes("tw") || navLang.includes("hk") || navLang.includes("hant")) ? "zh-TW" : "zh-CN";
-                } else if (navLang.startsWith("de")) {
-                    savedLang = "de";
-                } else if (navLang.startsWith("fr")) {
-                    savedLang = "fr";
-                } else if (navLang.startsWith("ja")) {
-                    savedLang = "ja";
-                } else {
-                    savedLang = "en";
-                }
-            }
-            languageSelect.value = savedLang;
-            setLanguage(savedLang);
-            // Track initial language distribution
-            trackEvent('set_language', {
-                language: savedLang,
-                is_initial: true
-            });
-        }
-
-        // Track CTA Clicks
         document.querySelectorAll('.btn-primary').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const text = e.target.innerText || e.target.getAttribute('data-i18n');
@@ -373,12 +300,14 @@
         });
 
         // Track Social/Contact Links
-        document.querySelectorAll('.footer-contact-item a').forEach(link => {
+        document.querySelectorAll('.footer-contact-item').forEach(link => {
             link.addEventListener('click', (e) => {
-                const type = link.href.startsWith('mailto:') ? 'email' : 'x_twitter';
-                trackEvent('contact_click', {
-                    contact_type: type,
-                    target_url: link.href
+                const href = link.getAttribute('href');
+                if (!href) return;
+                const type = href.startsWith('mailto:') ? 'email' : (href.includes('privacy.html') ? 'privacy' : 'social');
+                trackEvent('link_click', {
+                    link_type: type,
+                    target_url: href
                 });
             });
         });

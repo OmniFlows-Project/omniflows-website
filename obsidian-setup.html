@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="obsidianTitle">Obsidian Integration Guide - OmniFlows</title>
     <link rel="stylesheet" href="index.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T52M4HH110"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-T52M4HH110');
+
+        // Helper to track custom events
+        function trackEvent(name, params = {}) {
+            if (typeof gtag === 'function') {
+                gtag('event', name, params);
+            }
+        }
+    </script>
     <style>
         /* Setup page specific overrides */
         .setup-container {
